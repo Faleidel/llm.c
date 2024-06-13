@@ -46,8 +46,11 @@ def tokenize():
     # encode the text
     tokens = encode(text)
     # let's take the first 32,768 tokens as the validation split (~10%)
-    val_tokens = tokens[:32768]
-    train_tokens = tokens[32768:]
+    #val_tokens = tokens[:32768]
+    #train_tokens = tokens[32768:]
+    # taken from 10%
+    val_tokens = tokens[:len(tokens)//10]
+    train_tokens = tokens[len(tokens)//10:]
     # save to file
     val_filename = os.path.join(DATA_CACHE_DIR, "tiny_shakespeare_val.bin")
     train_filename = os.path.join(DATA_CACHE_DIR, "tiny_shakespeare_train.bin")
